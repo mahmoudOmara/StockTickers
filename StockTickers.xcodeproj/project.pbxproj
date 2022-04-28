@@ -68,8 +68,8 @@
 				04DD16AF281B292200F1331E /* Controllers */,
 				04DD16AE281B28F200F1331E /* Storyboards */,
 				04DD16BC281B32FC00F1331E /* Models */,
+				04DD16C3281B3BC400F1331E /* Services */,
 				04DD1693281B250000F1331E /* AppDelegate.swift */,
-				04DD16C1281B3BAA00F1331E /* NewsFeedService.swift */,
 				04DD16A1281B250100F1331E /* Info.plist */,
 				04DD169C281B250100F1331E /* Assets.xcassets */,
 			);
@@ -99,6 +99,14 @@
 				04DD16B8281B2DE900F1331E /* NewsFeed.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04DD16C3281B3BC400F1331E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04DD16C1281B3BAA00F1331E /* NewsFeedService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		930C56813A4FD02E3C678877 /* Frameworks */ = {
