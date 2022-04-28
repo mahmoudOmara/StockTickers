@@ -11,6 +11,8 @@
 		04DD169D281B250100F1331E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD169C281B250100F1331E /* Assets.xcassets */; };
 		04DD16A0281B250100F1331E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD169E281B250100F1331E /* LaunchScreen.storyboard */; };
 		04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */; };
+		04DD16BA281B2DE900F1331E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16B7281B2DE900F1331E /* Article.swift */; };
+		04DD16BB281B2DE900F1331E /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16B8281B2DE900F1331E /* NewsFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		04DD169F281B250100F1331E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04DD16A1281B250100F1331E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		04DD16B7281B2DE900F1331E /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		04DD16B8281B2DE900F1331E /* NewsFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		04DD1692281B250000F1331E /* StockTickers */ = {
 			isa = PBXGroup;
 			children = (
-				04DD1693281B250000F1331E /* AppDelegate.swift */,
 				04DD16AF281B292200F1331E /* Controllers */,
-				04DD169C281B250100F1331E /* Assets.xcassets */,
 				04DD16AE281B28F200F1331E /* Storyboards */,
+				04DD16B7281B2DE900F1331E /* Article.swift */,
+				04DD16B8281B2DE900F1331E /* NewsFeed.swift */,
+				04DD1693281B250000F1331E /* AppDelegate.swift */,
 				04DD16A1281B250100F1331E /* Info.plist */,
+				04DD169C281B250100F1331E /* Assets.xcassets */,
 			);
 			path = StockTickers;
 			sourceTree = "<group>";
@@ -147,8 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DD16BA281B2DE900F1331E /* Article.swift in Sources */,
 				04DD1694281B250000F1331E /* AppDelegate.swift in Sources */,
 				04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */,
+				04DD16BB281B2DE900F1331E /* NewsFeed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
