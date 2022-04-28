@@ -13,6 +13,7 @@
 		04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */; };
 		04DD16BA281B2DE900F1331E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16B7281B2DE900F1331E /* Article.swift */; };
 		04DD16BB281B2DE900F1331E /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16B8281B2DE900F1331E /* NewsFeed.swift */; };
+		04DD16C2281B3BAA00F1331E /* NewsFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD16C1281B3BAA00F1331E /* NewsFeedService.swift */; };
 		C390C2102FDB44C7EAEFF9C7 /* Pods_StockTickers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0A1AF02DEBD8CC29668E2A /* Pods_StockTickers.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		04DD16B7281B2DE900F1331E /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		04DD16B8281B2DE900F1331E /* NewsFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		04DD16C1281B3BAA00F1331E /* NewsFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedService.swift; sourceTree = "<group>"; };
 		7E0A1AF02DEBD8CC29668E2A /* Pods_StockTickers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockTickers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FCBB9CBE616210E00D0477 /* Pods-StockTickers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockTickers.release.xcconfig"; path = "Target Support Files/Pods-StockTickers/Pods-StockTickers.release.xcconfig"; sourceTree = "<group>"; };
 		F5E0264A3F47D1AC81BA2398 /* Pods-StockTickers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockTickers.debug.xcconfig"; path = "Target Support Files/Pods-StockTickers/Pods-StockTickers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				04DD16AE281B28F200F1331E /* Storyboards */,
 				04DD16BC281B32FC00F1331E /* Models */,
 				04DD1693281B250000F1331E /* AppDelegate.swift */,
+				04DD16C1281B3BAA00F1331E /* NewsFeedService.swift */,
 				04DD16A1281B250100F1331E /* Info.plist */,
 				04DD169C281B250100F1331E /* Assets.xcassets */,
 			);
@@ -112,7 +115,6 @@
 				F5E0264A3F47D1AC81BA2398 /* Pods-StockTickers.debug.xcconfig */,
 				C3FCBB9CBE616210E00D0477 /* Pods-StockTickers.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -230,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DD16C2281B3BAA00F1331E /* NewsFeedService.swift in Sources */,
 				04DD16BA281B2DE900F1331E /* Article.swift in Sources */,
 				04DD1694281B250000F1331E /* AppDelegate.swift in Sources */,
 				04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */,
