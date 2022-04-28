@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewsFeed {
-	let articles: [Article]
+	let articles: [Article]?
 }
 
 extension NewsFeed: Decodable {}

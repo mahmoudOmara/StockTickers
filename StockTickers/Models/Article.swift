@@ -8,10 +8,10 @@
 import Foundation
 
 struct Article {
-	let title : String
-	let description : String
-	let imageURL : String
-	let date : Date
+	let title: String?
+	let description: String?
+	let imageURL: String?
+	let date: String?
 }
 
 extension Article: Decodable {
