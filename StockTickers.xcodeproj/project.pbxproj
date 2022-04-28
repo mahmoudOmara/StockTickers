@@ -53,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				04DD1693281B250000F1331E /* AppDelegate.swift */,
-				04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */,
+				04DD16AF281B292200F1331E /* Controllers */,
 				04DD169C281B250100F1331E /* Assets.xcassets */,
 				04DD16AE281B28F200F1331E /* Storyboards */,
 				04DD16A1281B250100F1331E /* Info.plist */,
@@ -67,6 +67,14 @@
 				04DD169E281B250100F1331E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		04DD16AF281B292200F1331E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04DD16AA281B27DA00F1331E /* NewsFeedViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
