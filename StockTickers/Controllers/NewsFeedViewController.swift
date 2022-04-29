@@ -9,6 +9,14 @@ import UIKit
 
 class NewsFeedViewController: UIViewController {
 
+    private var viewModel: NewsFeedViewModel?
+    
+    convenience init(viewModel: NewsFeedViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
