@@ -9,9 +9,9 @@ import UIKit
 
 class LatestNewsCollectionViewCell: UICollectionViewCell {
 
-    private var viewModel: NewsFeedViewModel?
+    private var viewModel: NewsItemViewModel?
     
-    func configure(with viewModel: NewsFeedViewModel) {
+    func configure(with viewModel: NewsItemViewModel) {
         self.viewModel = viewModel
     }
 }
