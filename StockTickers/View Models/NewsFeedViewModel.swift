@@ -6,14 +6,37 @@
 //
 
 import Foundation
+import Combine
 
 class NewsFeedViewModel {
-    
-    let stockTickersService: StockTickersService
-    let newsFeedService: NewsFeedService
-    
+
+    @Published var newsFeed = [Article]()
+    @Published var newsFeedLoadingError = ""
+
+    private let stockTickersService: StockTickersService
+    private let newsFeedService: NewsFeedService
+
+    private var cancellableSet: Set<AnyCancellable> = []
+
     init(stockTickersService: StockTickersService, newsFeedService: NewsFeedService) {
         self.stockTickersService = stockTickersService
         self.newsFeedService = newsFeedService
+    }
+    
+    func viewLoaded() {
+        getNewsFeed()
+    }
+    
+    private func getNewsFeed() {
+        self.newsFeedService
+            .fetchNewsFeed()
+            .sink {  response in
+                if let error = response.error {
+                    self.newsFeedLoadingError = error.localizedDescription
+                } else {
+                    self.newsFeed = response.value?.articles ?? []
+                }
+            }
+            .store(in: &cancellableSet)
     }
 }
