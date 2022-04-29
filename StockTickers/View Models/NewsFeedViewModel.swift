@@ -13,6 +13,9 @@ class NewsFeedViewModel {
     @Published var newsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var newsFeedLoadingError = ""
 
+    @Published var stockTickers = [StockTicker]()
+    @Published var stockTickersLoadingError = ""
+
     private let stockTickersService: StockTickersService
     private let newsFeedService: NewsFeedService
 
@@ -25,6 +28,21 @@ class NewsFeedViewModel {
     
     func viewLoaded() {
         getNewsFeed()
+    }
+    
+    private func getStockTickers() {
+        self.stockTickersService
+            .fetchNewsFeed()
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    self.stockTickersLoadingError = error.localizedDescription
+                case .success(let tickers):
+                    self.stockTickers = tickers
+                }
+            }
+            .store(in: &cancellableSet)
     }
     
     private func getNewsFeed() {
