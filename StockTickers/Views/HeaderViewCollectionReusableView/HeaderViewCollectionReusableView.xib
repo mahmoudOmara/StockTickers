@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROd-Xm-coA">
-                    <rect key="frame" x="8" y="8" width="304" height="34"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -22,10 +22,10 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ROd-Xm-coA" secondAttribute="trailing" constant="8" id="OC6-4g-qKY"/>
-                <constraint firstItem="ROd-Xm-coA" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="c4Q-FU-aif"/>
-                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="ROd-Xm-coA" secondAttribute="bottom" constant="8" id="pNs-uf-JRO"/>
-                <constraint firstItem="ROd-Xm-coA" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="8" id="rdB-5b-OI3"/>
+                <constraint firstAttribute="trailing" secondItem="ROd-Xm-coA" secondAttribute="trailing" id="OC6-4g-qKY"/>
+                <constraint firstItem="ROd-Xm-coA" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="c4Q-FU-aif"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="ROd-Xm-coA" secondAttribute="bottom" id="pNs-uf-JRO"/>
+                <constraint firstItem="ROd-Xm-coA" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="rdB-5b-OI3"/>
             </constraints>
             <point key="canvasLocation" x="139" y="130"/>
         </collectionReusableView>
