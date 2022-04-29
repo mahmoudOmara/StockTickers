@@ -37,6 +37,8 @@ extension NewsFeedViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .systemBackground
         collectionView.register(StockTickerCollectionViewCell.nib(), forCellWithReuseIdentifier: StockTickerCollectionViewCell.reuseIdentifier)
+        collectionView.register(LatestNewsCollectionViewCell.nib(), forCellWithReuseIdentifier: LatestNewsCollectionViewCell.reuseIdentifier)
+        
         self.collectionView = collectionView
       }
     
