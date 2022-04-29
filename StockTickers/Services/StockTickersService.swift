@@ -10,28 +10,10 @@ import Combine
 import SwiftCSV
 
 protocol StockTickersService {
-    associatedtype Error: Swift.Error
-    func fetchNewsFeed() -> AnyPublisher<Result<[StockTicker], Error>, Never>
+    func fetchNewsFeed() -> AnyPublisher<Result<[StockTicker], StockTickersServiceError>, Never>
 }
 
 class StockTickersAPI: StockTickersService {
-    
-    enum Error: Swift.Error {
-        case CSVReadError(message: String)
-        case others(message: String)
-        
-        static func representation(of error: Swift.Error) -> Error {
-            guard let readerError = error as? CSVParseError else {
-                return .others(message: error.localizedDescription)
-            }
-            switch readerError {
-            case .generic(message: let message):
-                return .CSVReadError(message: message)
-            case .quotation(message: let message):
-                return .CSVReadError(message: message)
-            }
-        }
-    }
     
     private let url: URL
     
@@ -39,7 +21,7 @@ class StockTickersAPI: StockTickersService {
         self.url = url
     }
     
-    func fetchNewsFeed() -> AnyPublisher<Result<[StockTicker], Error>, Never> {
+    func fetchNewsFeed() -> AnyPublisher<Result<[StockTicker], StockTickersServiceError>, Never> {
         do {
             
             let stocksCSV = try CSV(url: url)
@@ -63,8 +45,19 @@ class StockTickersAPI: StockTickersService {
                 })
                 .eraseToAnyPublisher()
         } catch {
-            return Result.Publisher(.failure(Error.representation(of: error))).eraseToAnyPublisher()
+            return Result.Publisher(.failure(stockTickersServiceError(of: error))).eraseToAnyPublisher()
         }
-        
+    }
+    
+    private func stockTickersServiceError(of error: Error) -> StockTickersServiceError {
+        guard let readerError = error as? CSVParseError else {
+            return .others(message: error.localizedDescription)
+        }
+        switch readerError {
+        case .generic(message: let message):
+            return .CSVReadError(message: message)
+        case .quotation(message: let message):
+            return .CSVReadError(message: message)
+        }
     }
 }
