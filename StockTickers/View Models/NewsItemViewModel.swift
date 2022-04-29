@@ -15,3 +15,13 @@ class NewsItemViewModel {
         self.newsItem = newsItem
     }
 }
+
+extension NewsItemViewModel: Hashable {
+    static func == (lhs: NewsItemViewModel, rhs: NewsItemViewModel) -> Bool {
+        lhs.newsItem.id == rhs.newsItem.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(newsItem.id)
+    }
+}

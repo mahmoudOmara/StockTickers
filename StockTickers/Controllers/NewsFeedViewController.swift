@@ -21,6 +21,8 @@ class NewsFeedViewController: UIViewController {
     
     enum Item: Hashable {
         case stockTicker(StockTickerViewModel)
+        case latestNews(NewsItemViewModel)
+        case remainigNews(NewsItemViewModel)
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>! = nil
