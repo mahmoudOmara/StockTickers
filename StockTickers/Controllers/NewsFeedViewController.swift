@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class NewsFeedViewController: UIViewController {
 
@@ -27,7 +28,12 @@ class NewsFeedViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var viewModel: NewsFeedViewModel?
     private lazy var dataSource = makeDataSource()
-
+    
+    private var stockTickersViewModels = [StockTickerViewModel]()
+    private var latestNewsFeedItemsViewModels = [NewsItemViewModel]()
+    private var resetNewsFeedItemsViewModels = [NewsItemViewModel]()
+    
+    private var cancellableSet: Set<AnyCancellable> = []
     
     convenience init(viewModel: NewsFeedViewModel) {
         self.init()
@@ -40,8 +46,35 @@ class NewsFeedViewController: UIViewController {
         
         navigationItem.title = "Stock Tickers"
         configureCollectionView()
+        subscribePublishers()
+        self.viewModel?.viewLoaded()
     }
-
+    
+    private func subscribePublishers() {
+        self.viewModel?
+            .$stockTickersViewModels
+            .sink(receiveValue: { [weak self] in
+                self?.stockTickersViewModels = $0
+                self?.applySnapshotForCurrentState()
+            })
+            .store(in: &cancellableSet)
+        
+        self.viewModel?
+            .$latestNewsFeedItemsViewModels
+            .sink(receiveValue: { [weak self] in
+                self?.latestNewsFeedItemsViewModels = $0
+                self?.applySnapshotForCurrentState()
+            })
+            .store(in: &cancellableSet)
+        
+        self.viewModel?
+            .$resetNewsFeedItemsViewModels
+            .sink(receiveValue: { [weak self] in
+                self?.resetNewsFeedItemsViewModels = $0
+                self?.applySnapshotForCurrentState()
+            })
+            .store(in: &cancellableSet)
+    }
 }
 
 
@@ -113,5 +146,29 @@ extension NewsFeedViewController {
             return view
         }
         return dataSource
+    }
+    
+    private  func snapshotForCurrentState() -> Snapshot {
+        var snapshot = Snapshot()
+
+        if !self.stockTickersViewModels.isEmpty {
+            snapshot.appendSections([Section.stockTickers])
+            snapshot.appendItems(self.stockTickersViewModels.map({ Item.stockTicker($0) }))
+        }
+        
+        if !self.latestNewsFeedItemsViewModels.isEmpty {
+            snapshot.appendSections([Section.latestNews])
+            snapshot.appendItems(self.latestNewsFeedItemsViewModels.map({ Item.latestNews($0) }))
+        }
+        
+        if !self.resetNewsFeedItemsViewModels.isEmpty {
+            snapshot.appendSections([Section.remainingNews])
+            snapshot.appendItems(self.resetNewsFeedItemsViewModels.map({ Item.remainigNews($0) }))
+        }
+        return snapshot
+    }
+    
+    private func applySnapshotForCurrentState() {
+        self.dataSource.apply(snapshotForCurrentState())
     }
 }
