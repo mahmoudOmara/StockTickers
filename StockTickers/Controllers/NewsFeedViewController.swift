@@ -81,7 +81,7 @@ extension NewsFeedViewController {
         return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
     }
     
-    func makeDataSource() -> DataSource {
+    private func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .stockTicker(let viewModel):
