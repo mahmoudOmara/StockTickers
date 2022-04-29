@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct StockTicker {
+struct StockTicker: Identifiable {
+    let id = UUID()
     var stockSymbol: String
     var price: String
 }
