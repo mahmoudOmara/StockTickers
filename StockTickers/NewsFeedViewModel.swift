@@ -7,12 +7,12 @@
 
 import Foundation
 
-class NewsFeedViewModel<T: StockTickersService> {
+class NewsFeedViewModel {
     
-    let stockTickersService: T
+    let stockTickersService: StockTickersService
     let newsFeedService: NewsFeedService
     
-    init(stockTickersService: T, newsFeedService: NewsFeedService) {
+    init(stockTickersService: StockTickersService, newsFeedService: NewsFeedService) {
         self.stockTickersService = stockTickersService
         self.newsFeedService = newsFeedService
     }
