@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B1B123281B64D500F34CEC /* StockTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1B122281B64D500F34CEC /* StockTicker.swift */; };
 		04DD1694281B250000F1331E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD1693281B250000F1331E /* AppDelegate.swift */; };
 		04DD169D281B250100F1331E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DD169C281B250100F1331E /* Assets.xcassets */; };
 		04DD16A0281B250100F1331E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DD169E281B250100F1331E /* LaunchScreen.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04B1B122281B64D500F34CEC /* StockTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTicker.swift; sourceTree = "<group>"; };
 		04DD1690281B250000F1331E /* StockTickers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockTickers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DD1693281B250000F1331E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DD169C281B250100F1331E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				04DD16B7281B2DE900F1331E /* Article.swift */,
 				04DD16B8281B2DE900F1331E /* NewsFeed.swift */,
+				04B1B122281B64D500F34CEC /* StockTicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DD16C2281B3BAA00F1331E /* NewsFeedService.swift in Sources */,
+				04B1B123281B64D500F34CEC /* StockTicker.swift in Sources */,
 				04DD16BA281B2DE900F1331E /* Article.swift in Sources */,
 				04DD1694281B250000F1331E /* AppDelegate.swift in Sources */,
 				04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */,
