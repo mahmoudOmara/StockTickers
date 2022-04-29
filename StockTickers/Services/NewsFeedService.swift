@@ -14,7 +14,7 @@ protocol NewsFeedService {
 }
 
 class NewsFeedAPI: NewsFeedService {
-    let url: URL
+    private let url: URL
     
     init(url: URL) {
         self.url = url
