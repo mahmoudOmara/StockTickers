@@ -41,10 +41,28 @@ extension NewsFeedViewController {
         collectionView.register(NewsCollectionViewCell.nib(), forCellWithReuseIdentifier: NewsCollectionViewCell.reuseIdentifier)
         collectionView.register(HeaderViewCollectionReusableView.nib(), forSupplementaryViewOfKind: HeaderViewCollectionReusableView.sectionHeaderElementKind, withReuseIdentifier: HeaderViewCollectionReusableView.reuseIdentifier)
         self.collectionView = collectionView
-      }
+    }
     
-    func generateLayout() -> UICollectionViewLayout {
-      
-      return UICollectionViewFlowLayout()
+    private func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
+            return [
+                self.generateStockTickersLayout(),
+                self.generateLatestNewsLayout(),
+                self.generateRemainingLayout()
+            ] [sectionIndex]
+        }
+        return layout
+    }
+    
+    private func generateStockTickersLayout() -> NSCollectionLayoutSection {
+        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
+    }
+    
+    private func generateLatestNewsLayout() -> NSCollectionLayoutSection {
+        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
+    }
+    
+    private func generateRemainingLayout() -> NSCollectionLayoutSection {
+        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
     }
 }
