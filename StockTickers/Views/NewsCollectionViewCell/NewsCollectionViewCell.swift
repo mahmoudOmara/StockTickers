@@ -8,7 +8,11 @@
 import UIKit
 
 class NewsCollectionViewCell: UICollectionViewCell {
+    private var viewModel: NewsItemViewModel?
     
+    func configure(with viewModel: NewsItemViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 extension NewsCollectionViewCell {
