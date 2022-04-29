@@ -10,7 +10,7 @@ import Combine
 
 class NewsFeedViewModel {
 
-    @Published var newsFeed = [Article]()
+    @Published var newsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var newsFeedLoadingError = ""
 
     private let stockTickersService: StockTickersService
@@ -34,7 +34,8 @@ class NewsFeedViewModel {
                 if let error = response.error {
                     self.newsFeedLoadingError = error.localizedDescription
                 } else {
-                    self.newsFeed = response.value?.articles ?? []
+                    self.newsFeedItemsViewModels = (response.value?.articles ?? [])
+                        .map({ NewsItemViewModel(newsItem: $0) })
                 }
             }
             .store(in: &cancellableSet)

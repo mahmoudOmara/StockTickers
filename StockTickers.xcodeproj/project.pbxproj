@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04853C32281BBAE000818ECB /* NewsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853C31281BBAE000818ECB /* NewsItemViewModel.swift */; };
 		04B1B123281B64D500F34CEC /* StockTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1B122281B64D500F34CEC /* StockTicker.swift */; };
 		04B1B127281B665B00F34CEC /* StockTickersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1B126281B665B00F34CEC /* StockTickersService.swift */; };
 		04B1B129281B900C00F34CEC /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1B128281B900C00F34CEC /* NewsFeedViewModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04853C31281BBAE000818ECB /* NewsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemViewModel.swift; sourceTree = "<group>"; };
 		04B1B122281B64D500F34CEC /* StockTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTicker.swift; sourceTree = "<group>"; };
 		04B1B126281B665B00F34CEC /* StockTickersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickersService.swift; sourceTree = "<group>"; };
 		04B1B128281B900C00F34CEC /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				04B1B128281B900C00F34CEC /* NewsFeedViewModel.swift */,
+				04853C31281BBAE000818ECB /* NewsItemViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				04DD16BA281B2DE900F1331E /* Article.swift in Sources */,
 				04DD1694281B250000F1331E /* AppDelegate.swift in Sources */,
 				04DD16AB281B27DA00F1331E /* NewsFeedViewController.swift in Sources */,
+				04853C32281BBAE000818ECB /* NewsItemViewModel.swift in Sources */,
 				04DD16BB281B2DE900F1331E /* NewsFeed.swift in Sources */,
 				04B1B12B281B958500F34CEC /* StockTickersServiceError.swift in Sources */,
 				04B1B129281B900C00F34CEC /* NewsFeedViewModel.swift in Sources */,
