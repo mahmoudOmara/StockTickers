@@ -10,7 +10,8 @@ import Combine
 
 class NewsFeedViewModel {
 
-    @Published var newsFeedItemsViewModels = [NewsItemViewModel]()
+    @Published var latestNewsFeedItemsViewModels = [NewsItemViewModel]()
+    @Published var resetNewsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var newsFeedLoadingError = ""
 
     @Published var stockTickersViewModels = [StockTickerViewModel]()
@@ -52,12 +53,15 @@ class NewsFeedViewModel {
     private func getNewsFeed() {
         self.newsFeedService
             .fetchNewsFeed()
-            .sink {  response in
+            .sink {  [weak self] response in
+                guard let self = self else { return }
                 if let error = response.error {
                     self.newsFeedLoadingError = error.localizedDescription
                 } else {
-                    self.newsFeedItemsViewModels = (response.value?.articles ?? [])
+                    let viewModels = (response.value?.articles ?? [])
                         .map({ NewsItemViewModel(newsItem: $0) })
+                    self.latestNewsFeedItemsViewModels = [NewsItemViewModel](viewModels.prefix(6))
+                    self.resetNewsFeedItemsViewModels = [NewsItemViewModel](viewModels.dropFirst(6))
                 }
             }
             .store(in: &cancellableSet)
