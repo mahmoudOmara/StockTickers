@@ -9,7 +9,7 @@ import Foundation
 
 class NewsItemViewModel {
     
-    let newsItem: Article
+    private let newsItem: Article
     
     init(newsItem: Article) {
         self.newsItem = newsItem
