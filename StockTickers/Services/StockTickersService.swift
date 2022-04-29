@@ -22,31 +22,36 @@ class StockTickersAPI: StockTickersService {
     }
     
     func fetchNewsFeed() -> AnyPublisher<Result<[StockTicker], StockTickersServiceError>, Never> {
-        do {
-            
-            let stocksCSV = try CSV(url: url)
-            
-            let allRows = stocksCSV.namedRows
-            
-            let data = try JSONSerialization.data(withJSONObject: allRows, options: .prettyPrinted)
-
-            let decoder = JSONDecoder()
-            
-            let stockTickers = try decoder.decode([StockTicker].self, from: data)
-            let stockTickersGrouped = Dictionary(grouping: stockTickers, by: \.stockSymbol)
-            return stockTickersGrouped
-                .compactMap { (_, value) in
-                value.randomElement()
+        
+        let result = PassthroughSubject<Result<[StockTicker], StockTickersServiceError>, Never>()
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            do {
+                let stocksCSV = try CSV(url: self.url)
+                
+                let allRows = stocksCSV.namedRows
+                
+                let data = try JSONSerialization.data(withJSONObject: allRows, options: .prettyPrinted)
+                
+                let decoder = JSONDecoder()
+                
+                let allStockTickers = try decoder.decode([StockTicker].self, from: data)
+                let currentStockTickers = Dictionary(grouping: allStockTickers, by: \.stockSymbol)
+                    .compactMap { (_, value) in
+                        value.randomElement()
+                    }
+                result.send(.success(currentStockTickers))
+                result.send(completion: .finished)
+            } catch {
+                result.send(.failure(self.stockTickersServiceError(of: error)))
+                result.send(completion: .finished)
             }
-                .publisher
-                .collect()
-                .map({
-                    Result.success($0)
-                })
-                .eraseToAnyPublisher()
-        } catch {
-            return Result.Publisher(.failure(stockTickersServiceError(of: error))).eraseToAnyPublisher()
         }
+        
+        return result
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     private func stockTickersServiceError(of error: Error) -> StockTickersServiceError {
