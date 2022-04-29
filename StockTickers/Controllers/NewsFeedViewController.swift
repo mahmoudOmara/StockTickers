@@ -11,8 +11,19 @@ class NewsFeedViewController: UIViewController {
 
     private var collectionView: UICollectionView!
 
-    
     private var viewModel: NewsFeedViewModel?
+    
+    enum Section: String {
+      case stockTickers = "Stocks"
+      case latestNews = "Latest News"
+      case remainingNews = "More News"
+    }
+    
+    enum Item: Hashable {
+        case stockTicker(StockTickerViewModel)
+    }
+
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>! = nil
     
     convenience init(viewModel: NewsFeedViewModel) {
         self.init()

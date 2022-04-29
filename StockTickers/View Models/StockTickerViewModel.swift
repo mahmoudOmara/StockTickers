@@ -15,3 +15,13 @@ class StockTickerViewModel {
         self.stockTicker = stockTicker
     }
 }
+
+extension StockTickerViewModel: Hashable {
+    static func == (lhs: StockTickerViewModel, rhs: StockTickerViewModel) -> Bool {
+        lhs.stockTicker.stockSymbol == rhs.stockTicker.stockSymbol
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(stockTicker.stockSymbol)
+    }
+}
