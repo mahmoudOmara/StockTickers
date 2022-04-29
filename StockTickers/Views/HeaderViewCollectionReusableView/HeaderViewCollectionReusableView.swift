@@ -9,6 +9,11 @@ import UIKit
 
 class HeaderViewCollectionReusableView: UICollectionReusableView {
 
+    private var title: String?
+    
+    func configure(with title: String) {
+        self.title = title
+    }
     
 }
 
