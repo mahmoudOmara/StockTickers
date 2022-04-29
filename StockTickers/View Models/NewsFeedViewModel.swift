@@ -28,6 +28,9 @@ class NewsFeedViewModel {
     
     func viewLoaded() {
         getNewsFeed()
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.getStockTickers()
+        }
     }
     
     private func getStockTickers() {
