@@ -13,7 +13,7 @@ class NewsFeedViewModel {
     @Published var newsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var newsFeedLoadingError = ""
 
-    @Published var stockTickersViewModel = [StockTickerViewModel]()
+    @Published var stockTickersViewModels = [StockTickerViewModel]()
     @Published var stockTickersLoadingError = ""
 
     private let stockTickersService: StockTickersService
@@ -39,7 +39,7 @@ class NewsFeedViewModel {
                 case .failure(let error):
                     self.stockTickersLoadingError = error.description
                 case .success(let tickers):
-                    self.stockTickersViewModel = tickers
+                    self.stockTickersViewModels = tickers
                         .map({ StockTickerViewModel(stockTicker: $0) })
                 }
             }
