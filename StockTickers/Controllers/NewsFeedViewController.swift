@@ -9,6 +9,9 @@ import UIKit
 
 class NewsFeedViewController: UIViewController {
 
+    private var collectionView: UICollectionView!
+
+    
     private var viewModel: NewsFeedViewModel?
     
     convenience init(viewModel: NewsFeedViewModel) {
@@ -19,9 +22,25 @@ class NewsFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        navigationItem.title = "Stock Tickers"
+        configureCollectionView()
     }
 
+}
+
+
+extension NewsFeedViewController {
+    private func configureCollectionView() {
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
+        view.addSubview(collectionView)
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.backgroundColor = .systemBackground
+        self.collectionView = collectionView
+      }
+    
+    func generateLayout() -> UICollectionViewLayout {
+      
+      return UICollectionViewFlowLayout()
+    }
 }
