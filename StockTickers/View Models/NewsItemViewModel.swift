@@ -6,13 +6,42 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 class NewsItemViewModel {
     
     private let newsItem: Article
     
+    @Published var title: String = ""
+    @Published var description: String = ""
+    @Published var image: UIImage? = nil
+    @Published var date: String = ""
+    
+    static private let serverDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        return dateFormatter
+    }()
+    
+    static private let clientDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+    
     init(newsItem: Article) {
         self.newsItem = newsItem
+        self.title = newsItem.title ?? ""
+        self.description = newsItem.description ?? ""
+        if let imageURL = URL(string: newsItem.imageURL ?? ""),
+           let imageData = try? Data(contentsOf: imageURL) {
+            self.image = UIImage(data: imageData)
+        }
+        if let date = NewsItemViewModel.serverDateFormatter.date(from: newsItem.date ?? "") {
+            self.date = NewsItemViewModel.clientDateFormatter.string(from: date)
+        }
+        
     }
 }
 
