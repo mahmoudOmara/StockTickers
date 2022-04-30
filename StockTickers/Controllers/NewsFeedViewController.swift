@@ -202,6 +202,12 @@ extension NewsFeedViewController {
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 5,
+            bottom: 5,
+            trailing: 5)
+        
         let groupSize = NSCollectionLayoutSize(
           widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
           heightDimension: NSCollectionLayoutDimension.fractionalHeight(0.5)
@@ -219,6 +225,13 @@ extension NewsFeedViewController {
           elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
           alignment: .top
         )
+        
+        sectionHeader.contentInsets = NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 5,
+            bottom: 5,
+            trailing: 5)
+        
         section.boundarySupplementaryItems = [sectionHeader]
 
         return section
