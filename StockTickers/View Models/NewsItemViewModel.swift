@@ -34,10 +34,15 @@ class NewsItemViewModel {
         self.newsItem = newsItem
         self.title = newsItem.title ?? ""
         self.description = newsItem.description ?? ""
-        if let imageURL = URL(string: newsItem.imageURL ?? ""),
-           let imageData = try? Data(contentsOf: imageURL) {
-            self.image = UIImage(data: imageData)
+        DispatchQueue.global().async { [weak self] in
+            if let imageURL = URL(string: newsItem.imageURL ?? ""),
+               let imageData = try? Data(contentsOf: imageURL) {
+                DispatchQueue.main.async {
+                    self?.image = UIImage(data: imageData)
+                }
+            }
         }
+        
         if let date = NewsItemViewModel.serverDateFormatter.date(from: newsItem.date ?? "") {
             self.date = NewsItemViewModel.clientDateFormatter.string(from: date)
         }
