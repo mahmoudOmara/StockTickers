@@ -15,6 +15,13 @@ class LatestNewsCollectionViewCell: UICollectionViewCell {
     
     private var viewModel: NewsItemViewModel?
     private var cancellableSet: Set<AnyCancellable> = []
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        newsImageView.layer.cornerRadius = 8
+        newsImageView.layer.masksToBounds = true
+    }
 
     func configure(with viewModel: NewsItemViewModel) {
         self.viewModel = viewModel
