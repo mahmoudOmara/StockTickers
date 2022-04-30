@@ -41,6 +41,7 @@ class StockTickersAPI: StockTickersService {
                     .compactMap { (_, value) in
                         value.randomElement()
                     }
+                    .sorted { $0.stockSymbol < $1.stockSymbol}
                 result.send(.success(currentStockTickers))
                 result.send(completion: .finished)
             } catch {
