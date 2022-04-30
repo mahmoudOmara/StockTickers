@@ -249,7 +249,7 @@ extension NewsFeedViewController {
         return snapshot
     }
     
-    private func applySnapshotForCurrentState() {
-        self.dataSource.apply(snapshotForCurrentState())
+    private func applySnapshotForCurrentState(animatingDifferences: Bool = true) {
+        self.dataSource.apply(snapshotForCurrentState(), animatingDifferences: animatingDifferences)
     }
 }
