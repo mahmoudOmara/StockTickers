@@ -14,7 +14,7 @@ class StockTickerViewModel {
     @Published var stockSymbol: String = ""
     @Published var price: String = ""
 
-    static let currencyFormatter: NumberFormatter = {
+    static private let currencyFormatter: NumberFormatter = {
       let formatter = NumberFormatter()
       formatter.numberStyle = .currency
       formatter.positiveFormat = "#.## ¤"
