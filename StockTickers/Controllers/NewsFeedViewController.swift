@@ -74,6 +74,18 @@ class NewsFeedViewController: UIViewController {
                 self?.applySnapshotForCurrentState()
             })
             .store(in: &cancellableSet)
+        
+        self.viewModel?
+            .$loadingState
+            .sink(receiveValue: { [weak self] in
+                switch $0 {
+                case .loading:
+                    self?.showLoading()
+                case .notLoading:
+                    self?.hideLoading()
+                }
+            })
+            .store(in: &cancellableSet)
     }
 }
 
