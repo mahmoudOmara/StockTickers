@@ -24,12 +24,21 @@ class StockTickerCollectionViewCell: UICollectionViewCell {
                 self?.symbolLabel.text = $0
             }
             .store(in: &cancellableSet)
+        
         viewModel
             .$price
             .sink { [weak self] in
                 self?.priceLabel.text = $0
             }
             .store(in: &cancellableSet)
+        
+        viewModel
+            .$isPositivePrice
+            .sink { [weak self] in
+                self?.priceLabel.textColor = $0 ? .systemGreen : .systemRed
+            }
+            .store(in: &cancellableSet)
+
     }
     
 }

@@ -13,6 +13,7 @@ class StockTickerViewModel {
     
     @Published var stockSymbol: String = ""
     @Published var price: String = ""
+    @Published var isPositivePrice: Bool = true
 
     static private let currencyFormatter: NumberFormatter = {
       let formatter = NumberFormatter()
@@ -27,6 +28,7 @@ class StockTickerViewModel {
         self.stockTicker = stockTicker
         self.stockSymbol = stockTicker.stockSymbol
         self.price = StockTickerViewModel.currencyFormatter.string(from: NSNumber.init(value: Double(stockTicker.price) ?? 0)) ?? ""
+        self.isPositivePrice = (Double(stockTicker.price) ?? 0) >= 0
     }
 }
 
