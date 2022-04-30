@@ -86,6 +86,36 @@ class NewsFeedViewController: UIViewController {
                 }
             })
             .store(in: &cancellableSet)
+        
+        self.viewModel?
+            .$newsFeedLoadingError
+            .filter({ !$0.isEmpty })
+            .sink(receiveValue: { [weak self] in
+                self?.showErrorAlert(message: $0)
+            })
+            .store(in: &cancellableSet)
+        
+        self.viewModel?
+            .$stockTickersLoadingError
+            .filter({ !$0.isEmpty })
+            .sink(receiveValue: { [weak self] in
+                self?.showErrorAlert(message: $0)
+            })
+            .store(in: &cancellableSet)
+    }
+    
+    private func showErrorAlert(message: String) {
+        guard self.presentedViewController == nil else { return }
+        let alertController = UIAlertController(
+            title: "Something went wrong!",
+            message: message,
+            preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(
+            title: "Ok",
+            style: .default))
+        
+        present(alertController, animated: true)
     }
 }
 
