@@ -103,15 +103,96 @@ extension NewsFeedViewController {
     }
     
     private func generateStockTickersLayout() -> NSCollectionLayoutSection {
-        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
-    }
+        let itemSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1),
+          heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+          widthDimension: .estimated(80),
+          heightDimension: .estimated(50))
+        let group = NSCollectionLayoutGroup.horizontal(
+          layoutSize: groupSize,
+          subitem: item,
+          count: 1)
+        
+        let headerSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+          layoutSize: headerSize,
+          elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
+          alignment: .top)
+
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.boundarySupplementaryItems = [sectionHeader]
+        section.orthogonalScrollingBehavior = .continuous
+
+        return section
+      }
+    
     
     private func generateLatestNewsLayout() -> NSCollectionLayoutSection {
-        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
-    }
+        let itemSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1),
+          heightDimension: .fractionalHeight(1)) //here
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupFractionalWidth = 0.475
+        let groupFractionalHeight: Float = Float(2/3 * groupFractionalWidth)
+        let groupSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(CGFloat(groupFractionalWidth)),
+          heightDimension: .fractionalWidth(CGFloat(groupFractionalHeight)))
+        let group = NSCollectionLayoutGroup.horizontal(
+          layoutSize: groupSize,
+          subitem: item,
+          count: 1)
+        
+
+        let headerSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+          layoutSize: headerSize,
+          elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
+          alignment: .top)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [sectionHeader]
+        section.orthogonalScrollingBehavior = .groupPaging
+
+        return section
+      }
     
     private func generateRemainingLayout() -> NSCollectionLayoutSection {
-        return NSCollectionLayoutSection(group: NSCollectionLayoutGroup(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(10), heightDimension: .absolute(10))))
+        let itemSize = NSCollectionLayoutSize(
+          widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+          heightDimension: NSCollectionLayoutDimension.absolute(280)
+        )
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+          widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+          heightDimension: NSCollectionLayoutDimension.absolute(280)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        
+        // Supplementary header view setup
+        let headerFooterSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(44)
+        )
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+          layoutSize: headerFooterSize,
+          elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
+          alignment: .top
+        )
+        section.boundarySupplementaryItems = [sectionHeader]
+
+        return section
     }
     
     private func makeDataSource() -> DataSource {
