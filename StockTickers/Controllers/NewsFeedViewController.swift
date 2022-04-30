@@ -174,7 +174,7 @@ extension NewsFeedViewController {
         
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(22))
+          heightDimension: .absolute(36))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
           layoutSize: headerSize,
           elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
@@ -216,7 +216,7 @@ extension NewsFeedViewController {
 
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(22))
+          heightDimension: .absolute(36))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
           layoutSize: headerSize,
           elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
@@ -260,7 +260,7 @@ extension NewsFeedViewController {
         
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(22)
+          heightDimension: .absolute(36)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
           layoutSize: headerSize,
