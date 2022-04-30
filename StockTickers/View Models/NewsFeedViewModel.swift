@@ -10,12 +10,18 @@ import Combine
 
 class NewsFeedViewModel {
 
+    enum LoadingState {
+        case loading, notLoading
+    }
+    
     @Published var latestNewsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var resetNewsFeedItemsViewModels = [NewsItemViewModel]()
     @Published var newsFeedLoadingError = ""
 
     @Published var stockTickersViewModels = [StockTickerViewModel]()
     @Published var stockTickersLoadingError = ""
+    
+    @Published var loadingState = LoadingState.notLoading
 
     private let stockTickersService: StockTickersService
     private let newsFeedService: NewsFeedService
@@ -28,6 +34,7 @@ class NewsFeedViewModel {
     }
     
     func viewLoaded() {
+        self.loadingState = .loading
         getNewsFeed()
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.getStockTickers()
@@ -46,6 +53,7 @@ class NewsFeedViewModel {
                     self.stockTickersViewModels = tickers
                         .map({ StockTickerViewModel(stockTicker: $0) })
                 }
+                self.loadingState = .notLoading
             }
             .store(in: &cancellableSet)
     }
@@ -63,6 +71,7 @@ class NewsFeedViewModel {
                     self.latestNewsFeedItemsViewModels = [NewsItemViewModel](viewModels.prefix(6))
                     self.resetNewsFeedItemsViewModels = [NewsItemViewModel](viewModels.dropFirst(6))
                 }
+                self.loadingState = .notLoading
             }
             .store(in: &cancellableSet)
     }

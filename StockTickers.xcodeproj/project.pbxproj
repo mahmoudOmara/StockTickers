@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043ECCE4281D0C660034D012 /* UIViewController + Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ECCE3281D0C660034D012 /* UIViewController + Loading.swift */; };
 		04853C32281BBAE000818ECB /* NewsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853C31281BBAE000818ECB /* NewsItemViewModel.swift */; };
 		04853C34281BBDFF00818ECB /* StockTickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853C33281BBDFF00818ECB /* StockTickerViewModel.swift */; };
 		04853C37281C1C7900818ECB /* StockTickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853C35281C1C7900818ECB /* StockTickerCollectionViewCell.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043ECCE3281D0C660034D012 /* UIViewController + Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Loading.swift"; sourceTree = "<group>"; };
 		04853C31281BBAE000818ECB /* NewsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemViewModel.swift; sourceTree = "<group>"; };
 		04853C33281BBDFF00818ECB /* StockTickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerViewModel.swift; sourceTree = "<group>"; };
 		04853C35281C1C7900818ECB /* StockTickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043ECCE2281D0C540034D012 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				043ECCE3281D0C660034D012 /* UIViewController + Loading.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		04853C39281C1C8A00818ECB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		04DD1692281B250000F1331E /* StockTickers */ = {
 			isa = PBXGroup;
 			children = (
+				043ECCE2281D0C540034D012 /* Extensions */,
 				04DD16AF281B292200F1331E /* Controllers */,
 				04DD16AE281B28F200F1331E /* Storyboards */,
 				04DD16BC281B32FC00F1331E /* Models */,
@@ -336,6 +347,7 @@
 			files = (
 				04DD16C2281B3BAA00F1331E /* NewsFeedService.swift in Sources */,
 				04853C42281C220000818ECB /* NewsCollectionViewCell.swift in Sources */,
+				043ECCE4281D0C660034D012 /* UIViewController + Loading.swift in Sources */,
 				04B1B127281B665B00F34CEC /* StockTickersService.swift in Sources */,
 				04B1B123281B64D500F34CEC /* StockTicker.swift in Sources */,
 				04853C37281C1C7900818ECB /* StockTickerCollectionViewCell.swift in Sources */,
