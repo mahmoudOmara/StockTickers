@@ -144,33 +144,42 @@ extension NewsFeedViewController {
         return section
       }
     
-    
     private func generateLatestNewsLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1),
-          heightDimension: .fractionalHeight(1)) //here
+          heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let groupFractionalWidth = 0.475
-        let groupFractionalHeight: Float = Float(2/3 * groupFractionalWidth)
+        
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 5,
+            bottom: 5,
+            trailing: 5)
+        
         let groupSize = NSCollectionLayoutSize(
-          widthDimension: .fractionalWidth(CGFloat(groupFractionalWidth)),
-          heightDimension: .fractionalWidth(CGFloat(groupFractionalHeight)))
+            widthDimension: .fractionalWidth(CGFloat(0.8)),
+          heightDimension: .fractionalWidth(CGFloat(2/3 * 0.8)))
         let group = NSCollectionLayoutGroup.horizontal(
           layoutSize: groupSize,
           subitem: item,
           count: 1)
-        
 
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(44))
+          heightDimension: .estimated(22))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
           layoutSize: headerSize,
           elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
           alignment: .top)
+        
+        sectionHeader.contentInsets = NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 5,
+            bottom: 5,
+            trailing: 5)
 
         let section = NSCollectionLayoutSection(group: group)
+        
         section.boundarySupplementaryItems = [sectionHeader]
         section.orthogonalScrollingBehavior = .groupPaging
 
@@ -192,7 +201,7 @@ extension NewsFeedViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
         
-        // Supplementary header view setup
+        
         let headerFooterSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
           heightDimension: .estimated(44)
