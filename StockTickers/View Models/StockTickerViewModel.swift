@@ -11,8 +11,22 @@ class StockTickerViewModel {
     
     private let stockTicker: StockTicker
     
+    @Published var stockSymbol: String = ""
+    @Published var price: String = ""
+
+    static let currencyFormatter: NumberFormatter = {
+      let formatter = NumberFormatter()
+      formatter.numberStyle = .currency
+      formatter.positiveFormat = "#.## ¤"
+      formatter.negativeFormat = "-#.## ¤"
+      formatter.currencySymbol = "USD"
+      return formatter
+    }()
+    
     init(stockTicker: StockTicker) {
         self.stockTicker = stockTicker
+        self.stockSymbol = stockTicker.stockSymbol
+        self.price = StockTickerViewModel.currencyFormatter.string(from: NSNumber.init(value: Double(stockTicker.price) ?? 0)) ?? ""
     }
 }
 

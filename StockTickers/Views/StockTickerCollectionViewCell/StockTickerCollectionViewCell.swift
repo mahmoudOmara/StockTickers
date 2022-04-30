@@ -6,13 +6,30 @@
 //
 
 import UIKit
+import Combine
 
 class StockTickerCollectionViewCell: UICollectionViewCell {
     
-    private var viewModel: StockTickerViewModel?
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
+    private var viewModel: StockTickerViewModel?
+    private var cancellableSet: Set<AnyCancellable> = []
+
     func configure(with viewModel: StockTickerViewModel) {
         self.viewModel = viewModel
+        viewModel
+            .$stockSymbol
+            .sink { [weak self] in
+                self?.symbolLabel.text = $0
+            }
+            .store(in: &cancellableSet)
+        viewModel
+            .$price
+            .sink { [weak self] in
+                self?.priceLabel.text = $0
+            }
+            .store(in: &cancellableSet)
     }
     
 }

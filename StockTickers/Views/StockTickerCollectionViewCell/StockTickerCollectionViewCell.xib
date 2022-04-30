@@ -4,20 +4,21 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StockTickerCollectionViewCell" customModule="StockTickers" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="79" height="46"/>
+            <rect key="frame" x="0.0" y="0.0" width="79" height="47"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="79" height="46"/>
+                <rect key="frame" x="0.0" y="0.0" width="79" height="47"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7E-Wt-HP1">
-                        <rect key="frame" x="0.0" y="0.0" width="79" height="46"/>
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="47"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66n-0Y-hRh">
                                 <rect key="frame" x="0.0" y="0.0" width="79" height="20.5"/>
@@ -26,9 +27,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJW-wN-vl1">
-                                <rect key="frame" x="0.0" y="25.5" width="79" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="25.5" width="79" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -43,7 +44,16 @@
                 <constraint firstAttribute="bottom" secondItem="o7E-Wt-HP1" secondAttribute="bottom" id="dpE-1u-jFa"/>
             </constraints>
             <size key="customSize" width="79" height="62"/>
+            <connections>
+                <outlet property="priceLabel" destination="DJW-wN-vl1" id="4Rx-PI-UeC"/>
+                <outlet property="symbolLabel" destination="66n-0Y-hRh" id="bF9-Du-idS"/>
+            </connections>
             <point key="canvasLocation" x="157.24637681159422" y="133.92857142857142"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
