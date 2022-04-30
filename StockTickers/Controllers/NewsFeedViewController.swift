@@ -92,12 +92,20 @@ extension NewsFeedViewController {
     }
     
     private func generateLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
-            return [
-                self.generateStockTickersLayout(),
-                self.generateLatestNewsLayout(),
-                self.generateRemainingLayout()
-            ] [sectionIndex]
+        let layout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, _) -> NSCollectionLayoutSection? in
+            
+            guard let self = self else { return nil}
+            let sectionType = self.dataSource.sectionIdentifier(for: sectionIndex)
+            switch sectionType {
+            case .stockTickers:
+                return self.generateStockTickersLayout()
+            case .latestNews:
+                return self.generateLatestNewsLayout()
+            case .remainingNews:
+                return self.generateRemainingLayout()
+            default:
+                return nil
+            }
         }
         return layout
     }
