@@ -297,10 +297,9 @@ extension NewsFeedViewController {
             }
         }
         
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            guard kind == HeaderViewCollectionReusableView.sectionHeaderElementKind else {
-                return nil
-            }
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let self = self else { return nil }
+            guard kind == HeaderViewCollectionReusableView.sectionHeaderElementKind else { return nil }
             let section = self.dataSource.snapshot()
                 .sectionIdentifiers[indexPath.section]
             let view = collectionView.dequeueReusableSupplementaryView(
