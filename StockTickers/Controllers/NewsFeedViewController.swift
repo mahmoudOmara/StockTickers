@@ -189,25 +189,25 @@ extension NewsFeedViewController {
     private func generateRemainingLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
           widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-          heightDimension: NSCollectionLayoutDimension.absolute(280)
+          heightDimension: NSCollectionLayoutDimension.fractionalHeight(1)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
           widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-          heightDimension: NSCollectionLayoutDimension.absolute(280)
+          heightDimension: NSCollectionLayoutDimension.fractionalHeight(0.5)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
         
         
-        let headerFooterSize = NSCollectionLayoutSize(
+        let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(44)
+          heightDimension: .estimated(22)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-          layoutSize: headerFooterSize,
+          layoutSize: headerSize,
           elementKind: HeaderViewCollectionReusableView.sectionHeaderElementKind,
           alignment: .top
         )
