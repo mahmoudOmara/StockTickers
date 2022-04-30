@@ -20,9 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qrs-vs-TdZ">
-                                <rect key="frame" x="0.0" y="0.0" width="165" height="61"/>
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdp-d0-MYC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdp-d0-MYC">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -30,11 +30,11 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="FKN-eW-cGz"/>
+                                    <constraint firstAttribute="height" constant="41" id="FKN-eW-cGz"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S84-Cw-P7z">
-                                <rect key="frame" x="0.0" y="66" width="165" height="99"/>
+                                <rect key="frame" x="0.0" y="46" width="165" height="119"/>
                             </imageView>
                         </subviews>
                     </stackView>
