@@ -20,21 +20,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qrs-vs-TdZ">
-                                <rect key="frame" x="0.0" y="0.0" width="165" height="41"/>
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdp-d0-MYC">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdp-d0-MYC">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
+                                        <string key="text">Label
+Label</string>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="FKN-eW-cGz"/>
+                                    <constraint firstAttribute="height" constant="36" id="FKN-eW-cGz"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S84-Cw-P7z">
-                                <rect key="frame" x="0.0" y="46" width="165" height="119"/>
+                                <rect key="frame" x="0.0" y="41" width="165" height="124"/>
                             </imageView>
                         </subviews>
                     </stackView>
