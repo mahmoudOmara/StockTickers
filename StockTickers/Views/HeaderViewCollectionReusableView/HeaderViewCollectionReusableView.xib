@@ -27,6 +27,9 @@
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="ROd-Xm-coA" secondAttribute="bottom" id="pNs-uf-JRO"/>
                 <constraint firstItem="ROd-Xm-coA" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="rdB-5b-OI3"/>
             </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="ROd-Xm-coA" id="h7l-Nm-E14"/>
+            </connections>
             <point key="canvasLocation" x="139" y="130"/>
         </collectionReusableView>
     </objects>

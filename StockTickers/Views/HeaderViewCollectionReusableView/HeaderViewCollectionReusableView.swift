@@ -9,10 +9,13 @@ import UIKit
 
 class HeaderViewCollectionReusableView: UICollectionReusableView {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     private var title: String?
     
     func configure(with title: String) {
         self.title = title
+        self.titleLabel.text = title
     }
     
 }
